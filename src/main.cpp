@@ -30,7 +30,7 @@ setup(void)
 void
 loop(void)
 {
-    if( verify_hw() == BUTTON )             //  Verify all input hardware
-        do_publish("button","こんにちは");
+    if( verify_hw() == SWITCH )             //  Verify all input hardware
+        do_publish("switch","pressed");
     test_mqtt();                            //  Test news from broker
 }
