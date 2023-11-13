@@ -26,19 +26,9 @@ typedef struct
 
 static const topic_t topics[] =
 {
-    {   "clear", clear_leds },
-    {   "tr", toggle_red    },
-    {   "ty", toggle_yel    },
-    {   "tg", toggle_grn    },
-    {   "ti", toggle_int    },
-    {   "sr", set_red       },
-    {   "sy", set_yel       },
-    {   "sg", set_grn       },
-    {   "si", set_int       },
-    {   "button", toggle_red },
-    { "Hola de gonza", toggle_yel},
-    {   "Prender", toggle_red },
-    {   "Apagar", toggle_red },
+    {   "actual_values", init_values }, // /actual_values [stock] [price]
+    {   "refill",        refill       }, // /refill [quantity]
+    {   "new_price",     new_price    }, // /new_price [price]
     {   NULL }
 };
 
@@ -52,7 +42,7 @@ static const topic_t topics[] =
 static const char *subs[] =
 {
 #if (SUB_LIST==0)//list of topics with the board number
-    "#",
+    "69/#",
 #elif (SUB_LIST==1)
     "+/ti",
     "82/si",
@@ -99,7 +89,7 @@ static const char *subs[] =
     #define BROKER_USER ""
     #define BROKER_PASS ""
 #elif (MQTT==1)
-    #define BROKER_NAME "54.159.151.46"          //  Mosquitto outside local network
+    #define BROKER_NAME "18.214.20.253"          //  Mosquitto outside local network
     #define BROKER_PORT 1883
     #define BROKER_USER ""
     #define BROKER_PASS ""

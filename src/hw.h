@@ -1,5 +1,5 @@
 /*
- *  Project 41-mqtt_00 - Austral - EAM
+ *  Project Pixel Candy Machine - Austral - Electrónica Digital     - Grupo 13
  *
  *  hw.h
  *      Hardware dependent code
@@ -12,4 +12,4 @@ enum
 
 void init_hw(void);         //  Called at power up
 int get_board_num(void);    //  return board number
-int verify_hw(void);        //  Verifies all input hardware
+void dispense_candies(int buyed);    //  Dispense candies

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Pixel Candy Vending Machine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+      <div class="topnav">
+          <h1>Pixel Candy Vending Machine</h1>
+      </div>
+      <div class="content">
+        <div class="card">
+            <h2><span class="state ready" id="state">%STATE%</span></h2>
+            <div class="row">
+              <p class="candies_info">
+                Candies left: <span class="candies_stock" id="candies stock">%CANDIES%</span>
+              </p>
+              <p class="candies_info">
+                Price: <span id="candies price">$%PRICE%</span>
+              </p>
+            </div>
+            <p class="candies_ask">
+              How many candies do you want to buy?
+            </p>
+            <input type="number" class="candies_buy" id="candies number" min="1" oninput="validateInputCandies(this)">
+            <div id="error" class="error"></div>
+            <p><button id="button" class="button">BUY</button></p>
+        </div>
+      </div>
+      <script src="script.js"></script>
+  </body>
+</html>

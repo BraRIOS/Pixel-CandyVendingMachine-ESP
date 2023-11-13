@@ -9,6 +9,30 @@
 
 #include "hw.h"
 
+/*
+ *  Private functions
+ */
+
+/*
+ *  verify_half_turn
+ *      Verifies half turn switch
+ */
+
+static int verify_half_turn(void)
+{
+    int i;
+
+    for (i = 0; i < 10; i++)
+    {
+        if (digitalRead(SWITCH) == 0)
+        {
+            return HALF_TURN;
+        }
+        delay(100);
+    }
+    return NO_NEWS;
+}
+
 
 /*
  *  Public functions
@@ -42,36 +66,17 @@ init_hw(void)
 }
 
 /*
- *  verify_hw
- *      Verifies all input hardware
+ *  dispense_candies
+ *      Dispense candies
  */
 
-int
-verify_hw(void)
-{
-    return verify_half_turn();
-}
-
-/*
- *  Private functions
- */
-
-/*
- *  verify_half_turn
- *      Verifies half turn switch
- */
-
-static int verify_half_turn(void)
-{
-    int i;
-
-    for (i = 0; i < 10; i++)
-    {
-        if (digitalRead(SWITCH) == 0)
-        {
-            return HALF_TURN;
-        }
-        delay(100);
+void dispense_candies(int buyed){
+    while (buyed){
+      digitalWrite(MOTOR, HIGH);
+      if (verify_half_turn() == HALF_TURN){
+        digitalWrite(MOTOR, LOW);
+        delay(1000);
+        buyed--;
+      }        
     }
-    return NO_NEWS;
 }
